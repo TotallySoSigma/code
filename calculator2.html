@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src='scripts/calculator.js'>
+    </script>
+</head>
+
+<body>
+    
+<a href="index.html">Back</a>
+    <header>Complex Calculator</header>
+    <input type="text" id="screen" disabled>
+    <table>
+        <tr>
+            <td><button id="plus" onclick="saveOperator('+')">+</button></td>
+            <td><button id="minus" onclick="saveOperator('-')">-</button></td>
+            <td><button id="multiply" onclick="saveOperator('*')">×</button></td>
+        </tr>
+        <tr>
+            <td><button id="division" onclick="saveOperator('/')">÷</button></td>
+            <td><button id="equals" onclick="solve()">=</button></td>
+            <td><button id="zero" onclick="saveNumber(0)">0</button></td>
+        </tr>
+        <tr>
+            <td><button id="one" onclick="saveNumber(1)">1</button></td>
+            <td><button id="two" onclick="saveNumber(2)">2</button></td>
+            <td><button id="three" onclick="saveNumber(3)">3</button></td>
+        </tr>
+        <tr>
+            <td><button id="four" onclick="saveNumber(4)">4</button></td>
+            <td><button id="five" onclick="saveNumber(5)">5</button></td>
+            <td><button id="six" onclick="saveNumber(6)">6</button></td>
+        </tr>
+        <tr>
+            <td><button id="seven" onclick="saveNumber(7)">7</button></td>
+            <td><button id="eight" onclick="saveNumber(8)">8</button></td>
+            <td><button id="nine" onclick="saveNumber(9)">9</button></td>
+            <td><button id="clear" onclick="clearDisplay()">C</button></td>
+        </tr>
+    </table>
+    <script>document.getElementById('screen').value = 0</script>
+</body>
+
+</html>

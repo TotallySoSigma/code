@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<a href="index.html">Back</a>
+<head>
+    <script src='scripts/calculator.js'>
+    </script>
+</head>
+
+<body>
+    <header>Simple Calculator</header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="text" id="n1">
+    <select onchange id='operation'>
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">×</option>
+        <option value="4">÷</option>
+    </select>
+    <input type="text" id="n2">
+    <button type='button' id="calculate" onclick="calculate()">
+        Calculate</button>
+    <p>Answer = <span id="answerVar"></span>
+    </p>
+</body>
+
+</html>
