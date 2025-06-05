@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Detection</title>
+</head>
+
+<body>
+    <input type="text" id="something" placeholder="plz rite ur word here">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let aWord = document.getElementById("something").value;
+            for (i = 0; i < (0.5 * aWord.length); i++) {
+                if (aWord[i] == aWord[(aWord.length - 1) - i]) {
+                } else {
+                    alert("nuh uh uh");
+                    break;
+                }
+            }
+            if (aWord[i] == aWord[(aWord.length - 1) - i]) {
+                alert("yes");
+            }
+        }
+    </script>
+</body>
+
+</html>

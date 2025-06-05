@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="run()">Run</button>
+
+
+
+    <script>
+    function run(){
+        for (let x = 1;; x++) {
+            for (let y = 1; y < 100; y++) {
+                if ((x*x) - (y*y) == 37) {
+                    //alert(x+" "+y+" "+ (x*x)+" "+ (y*y));
+                    //alert("X = "+x +"Y = "+ y);
+                    alert((x*x)+(y*y));
+                    return;
+                }
+            }
+        }
+       //let x = 2;
+       //let y = 3;
+    //alert(((x*x) + (y*y) == 13));
+        }
+    
+    
+    </script>
+</body>
+</html>
