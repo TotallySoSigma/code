@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Splitting</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Click me plz</button>
+    <script>
+        function run() {
+            let originalString = "hurr hur hu hurrrr hurrrr"
+            let words = [];
+            let word = "";
+            for (i = 0; i < originalString.length; i++) {
+                if (originalString[i] != " ") {
+                    word = word + originalString[i]
+                } else {
+                    words.push(word)
+                    console.log(words)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
