@@ -1,24 +1,34 @@
 let words = ['apple', 'bannana', 'poop', 'meow', 'shut', 'hello', 'skibidi'];
 //My array;
+let score = 0;
 window.addEventListener('keydown', function (event) {
     document.getElementById("myText").focus();
+    let myText = document.getElementById("mytext").value;
+    if (event.key == "Enter" && words[number] == myText) {
+        displayRandomWord();
+        score++;
+    }
 });
-//Event listener for key presses;
-function startGame() {
-    document.getElementById('myText').value = '';
-    displayRandomWord();
-    let timeLeft = 10;
-    document.getElementById('timer');
-    const countdownTimer = setInterval(() => {
-        if (timeLeft <= 0) {
-            timeLeft -= 1;
-            clearInterval(countdownTimer);
-            countdownElement.innerHTML = "byebye u died wompwomp";
-        } else {
-            alert(timeLeft);
-            document.getElementById('timer').innerHTML = timeLeft;
+
+function countdown() {
+    let timer = parseInt(document.getElementById('timer').innerHTML);
+    const interval = setInterval(() => {
+        document.getElementById('timer').innerHTML = timer;
+
+        if (--timer < 0) {
+            clearInterval(interval);
+            document.getElementById('timer').innerHTML = "Time's up!";
         }
     }, 1000);
+}
+
+
+//Event listener for key presses;
+function startGame() {
+    document.getElementById('timer').innerHTML = 10;
+    document.getElementById('myText').value = '';
+    displayRandomWord();
+    countdown();
 }
 //Starting game function;
 function displayRandomWord() {

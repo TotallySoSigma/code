@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username validation</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Write Username Here">
+    <button onclick="run()">Run</button>
+    <script>
+
+        function run() {
+            let inputBox = document.getElementById("input").value;
+            console.log(codelandUsernameValidation(inputBox));
+        }
+        function codelandUsernameValidation(input) {
+            const maximumLength = 25;
+            const minimumLength = 4;
+            if (input.length < minimumLength) { // Checks first requirement
+                return false;
+            }
+            if (input.length > maximumLength) {// Checks first requirement
+                return false;
+            }
+            if (!(isLetter(input[0]))) {//Checks second requirement
+                return false;
+            }
+            for (i = 0; i < input.length; i++) {//Checks third requirement
+                if (!isLetter(input[i]) && !isNumber(input[i]) && input[i] != "_") {
+                    return false;
+                }
+            }
+            if (input[input.length - 1] == "_") {//Last requirement
+                return false;
+            }
+            return true;
+        }
+        function isLetter(letter) {
+            let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            for (i = 0; i < (letters.length + 1); i++) {
+                if (letter == letters[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function isNumber(number) {
+            let numbers = 1234567890;
+            for (i = 0; i < numbers.length; i++) {
+                if (number == numbers[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

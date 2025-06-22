@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Finder</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <textarea id="textarea" placeholder="Write Number"></textarea>
+    <script>
+        function run() {
+            let number = parseInt(document.getElementById("textarea").value);
+            let result = firstPrimeNumberAboveNumberGiven(number);
+            console.log(result)
+        }
+        function isPrime(number) {
+            let isItPrime;
+            for (i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    isItPrime = false;
+                    break;
+                }
+                isItPrime = true;
+            }
+            return isItPrime;
+        }
+        function firstPrimeNumberAboveNumberGiven(number) {
+            let counter = 0;
+            while (counter < 10) {
+                while (!isPrime(number)) {
+                    number++;
+                }
+                console.log("Number " + number + " is prime.");
+                number++;
+                counter++;
+            }
+            return number;
+        }
+    </script>
+</body>
+
+</html>

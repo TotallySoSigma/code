@@ -1,5 +1,5 @@
 const words = ["apple", "banana", "cherry", "date", "elderberry",
-    "pneumonoultramicroscopicsilicovolcanoconiosis", "euouae"];
+    "pneumonoultramicroscopicsilicovolcanoconiosis", "euouae", "meow meow"];
 let incorrectAttempts = 0;
 //////////////////////////////////////////////////////////////
 function start(arr) {
