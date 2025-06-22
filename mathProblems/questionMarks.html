@@ -9,45 +9,31 @@
 
 <body>
     <button type="button" onclick="run()">Run</button>
-    <textarea id="textarea" placeholder="Insert string here">5???5a67???3</textarea>
+    <textarea id="textarea" placeholder="Insert string here"></textarea>
     <script>
         function run() {
             let stringThingy = document.querySelector("textarea").value;
-            //console.log(stringThingy);
             console.log(QuestionMarks(stringThingy));
-            //console.log(stringThingy);
         }
         function QuestionMarks(str) {
-            console.log("str.length: " + str.length);
             for (i = 0; i < str.length; i++) {
-                console.log("str[i]: " + str[i]);
-                console.log("i: " + i);
-                /* 
-                console.log("isNumber(str[i]): " + isNumber(str[i])); */
                 if (isNumber(str[i])) {
-                    console.log('isnumber true');
-                    /* 
                     if (str[i + 1] == "?") {
                         if (str[i + 2] == "?") {
                             if (str[i + 3] == "?") {
-                                i++;
                                 if (isNumber(str[i + 4])) {
-                                    if (str[i] + str[i + 4] == 10) {
-                                        console.log(i);
+                                    if (Number(str[i]) + Number(str[i + 4]) == 10) {
+                                        return true;
                                     }
                                 }
                             }
                         }
-                    } */
+                    }
                 }
-                /*                 if (i == str.length) {
-                                    return;
-                                } */
             }
-        }
-
-        function isDigit(char) {
-            return /^[0-9]$/.test(char);
+            if (i == str.length) {
+                return false;
+            }
         }
         function isNumber(number) {
             let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
