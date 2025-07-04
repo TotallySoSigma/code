@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift function</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run(arr) {
+            console.log(arr);
+            let shiftedLetter = arr[arr.length - 1];//declaring the moved letter
+            let newArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i == 0) {
+                    newArr[i] = shiftedLetter;
+                } else {
+                    newArr[i] = arr[i];
+                }
+            }//solving
+            console.log(newArr);//consoling answer
+        }
+        function start(){
+            let theArray = ["a", 4, 12, 67, "b9"];//declaring the array
+            test1();
+            test2();
+            test3();
+        }
+        function test1(){
+            let input = [1,2,3,4,5];
+            if (run() != [2, 3, 4, 5, 1]){
+                console.log("test1 failed");
+            }
+        }
+        function test2(){
+            if (run(["a", 4, 12, 67, "b9"]) != [["b9", "a", 4, 12, 67]]){
+                console.log("test2 failed");
+            }
+        }
+        function test3(){
+            if (run([" ", 67, 69, "asdf"]) != ["asdf", " ", 67, 69]){
+                console.log("test3 failed");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+</head>
+
+<body>
+    <textarea id="text" placeholder="Insert text here"></textarea>
+    <textarea id="lettersMovedOver" placeholder="Amount of letters moved over">2</textarea>
+    </br>
+    <label for="encodeDecode">Choose to encode or decode:</label>
+    <select id="encodeDecode">
+        <option value="encode">Encode</option>
+        <option value="decode">Decode</option>
+    </select>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let textBox = document.getElementById("text").value;//////////////////////////// variable declarations
+            let shiftNumber = parseInt(document.getElementById("lettersMovedOver").value);// variable declarations
+            console.log(encode(textBox, shiftNumber));
+            console.assert(encode("A", 2) == "C", "Test 1 failed");
+            console.assert(encode("Z", 2) == "B", "Test 2 failed");
+            console.assert(encode("hello person", 2) == "jgnnqrgtuqp", "Test 3 failed");
+            console.assert(encode("", 2) == "", "Test 4 failed");
+        }
+        function encode(text, shift) {
+            let updatedNumbers = [];//////////////////////////////////////////////////////// variable declarations
+            let updatedLetters = [];//////////////////////////////////////////////////////// variable declarations
+            let i;////////////////////////////////////////////////////////////////////////// variable declarations
+            let alphabet;
+            let alphabetOfUpdatedNumbers;/////////////////////////////////////////////////// variable declarations
+            let finalAnswer = "";
+            for (i = 0; i < text.length; i++) {///////////////////////////////////////////////////////////////looping
+                if (letterToInt(text[i]) == 54) {/////////////////////////////////////////////////////handling spaces
+                    i++;
+                }
+                if (text === text.toUpperCase()) {
+                    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                } else {
+                    alphabet = "abcdefghijklmnopqrstuvwxyz "
+                }
+                updatedNumbers.push(letterToInt(text[i]));///////////////////////////////////////////recieving numbers
+                if (updatedNumbers[i] < 0) {
+                    updatedNumbers[i] += 25;
+                } else if (updatedNumbers[i] > 26) {
+                    updatedNumbers[i] = updatedNumbers % 26;
+                }
+                //console.log("UpdatedNumbers: " + updatedNumbers);//////////////////////debug
+                //console.log("alphabet[updatedNumbers]: " + alphabet[updatedNumbers]);//debug
+                alphabetOfUpdatedNumbers = alphabet[updatedNumbers[updatedNumbers.length - 1]];//////////////updating
+                //console.log("alphabetofupdatednumbers: " + alphabetOfUpdatedNumbers);//debug
+                //console.log("letterToInt(text[i]): " + letterToInt(text[i]));//////////debug
+                updatedLetters.push(alphabetOfUpdatedNumbers);///////////////////////////////changing back to letters
+                //console.log("UpdatedLetters: " + updatedLetters);
+            }
+            for (let i = 0; i < updatedLetters.length; i++) {
+                finalAnswer += updatedLetters[i];
+            }
+            return finalAnswer;
+        }
+        function letterToInt(char) {
+            let shift = parseInt(document.getElementById("lettersMovedOver").value);
+            let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+            for (let x = 0; x < alphabet.length + 1; x++) {
+                if (alphabet[x] == char) {
+                    return x + shift;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

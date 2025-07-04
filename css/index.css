@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(255, 179, 0);
+    background-color: rgb(90, 94, 101);
     opacity: 0.7;
 
     p {
@@ -30,14 +30,14 @@ body {
     }
 
     a:link {
-        color: red;
+        color: rgb(0, 191, 255);
     }
 
     a:visited {
-        color: green;
+        color: rgb(95, 32, 79);
     }
 
     a:hover {
-        color: rgb(255, 0, 0);
+        color: rgb(0, 0, 0);
     }
 }

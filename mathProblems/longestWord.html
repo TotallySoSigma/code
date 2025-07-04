@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest word finder</title>
+</head>
+
+<body>
+    <textarea id="textarea" placeholder="Insert text here"></textarea>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function isLetterOrNumber(letterOrNumber) {
+            let lettersAndNumbers = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            for (let i = 0; i < (lettersAndNumbers.length + 1); i++) {
+                if (letterOrNumber == lettersAndNumbers[i]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function run() {
+            let string = document.getElementById("textarea").value;
+            console.log("Final Longest word: " + LongestWord(string));
+            test1();
+            test2();
+            test3();
+            test4();
+            test5();
+            test6();
+            test7();
+            test8();
+            test9();
+        }
+        //starting function
+        function LongestWord(sen) {///////////////////////////////////////////////////////////////Actual function
+            let longestWord = "";//declaring longestWord
+            let currentWord = "";//declaring currentWord
+            if (sen[sen.length] != " ") {//adding a space to the end
+                sen = sen + " ";
+            }
+            for (let i = 0; i < sen.length; i++) {//looping through the string
+                if (isLetterOrNumber(sen[i])) {
+                    //Appending letters to current word if character is not a space
+                    currentWord = currentWord + sen[i];
+                } else {
+                    //if it is a space
+                    if (currentWord.length > longestWord.length) {
+                        //if the current word is longer
+                        longestWord = currentWord;
+                    }
+                    currentWord = "";
+                }
+            }
+            return longestWord;
+        }
+        function test1() {
+            if (LongestWord("Hello skibidi") != "skibidi") {
+                console.log("test1 failed");
+            }
+        }
+        function test2() {
+            if (LongestWord("ABC44 Hello mister") != "mister") {
+                console.log("test2 failed");
+            }
+        }
+        function test3() {
+            if (LongestWord("2323 432432") != "432432") {
+                console.log("test3 failed");
+            }
+        }
+        function test4() {
+            if (LongestWord("moo. moos") != "moos") {
+                console.log("test4 failed");
+            }
+        }
+        function test5() {
+            if (LongestWord("moo. moo") != "moo") {
+                console.log("test5 failed");
+            }
+        }
+        function test6() {
+            if (LongestWord("moo.moo") != "moo") {
+                console.log("test6 failed");
+            }
+        }
+        function test7() {
+            if (LongestWord(".") != "") {
+                console.log("test7 failed");
+            }
+        }
+        function test8() {
+            if (LongestWord("              ") != "") {
+                console.log("test8 failed");
+            }
+        }
+        function test9() {
+            if (LongestWord("🧌👹🐖 🐷🦧🦾👀🐮🐵🐦‍🔥 🙊👺") != "") {
+                console.log("test9 failed");
+            }
+        }
+    </script>
+</body>
+
+</html>

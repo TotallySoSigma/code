@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabetical order</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Enter phrase here">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;//getting the input
+            console.log(alphabeticalOrder(input));//consoling result & calling alphabeticalOrder()
+        }
+        function alphabeticalOrder(words) {
+            let array = words.split(" ");// turning input into array 
+            for (let currentWord = 0; currentWord < array.length; currentWord++) {//looping through each word
+                //console.log("currentword: " + currentWord);
+                //console.log("array[currentword]: " + array[currentWord]);
+                if (isLetter(array[currentWord]) == true) {
+                    return array[currentWord];
+                }
+                if (currentWord == array.length - 1) {
+                    return "There are no words in alphabetical order in the inputted string";
+                }
+            }
+        }
+        function isLetter(word) {
+            for (let letter = 0; letter < word.length; letter++) {
+                //console.log("Letter: " + letter);
+                if (word[letter] > word[letter + 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        console.assert(alphabeticalOrder("abc def") == "abc", "Test 1 failed");
+        console.assert(alphabeticalOrder("o o") == "o", "Test 2 failed");
+        console.assert(alphabeticalOrder("mo moo") == "mo", "Test 3 failed");
+        console.assert(alphabeticalOrder("ohio pig oinkers wonky") == "There are no words in alphabetical order in the inputted string", "Test 4 failed");
+
+    </script>
+</body>
+
+</html>

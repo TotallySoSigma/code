@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge and Sort an array</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let a1 = [];
+            let a2 = [];
+            console.log(mergeSort(a1, a2));
+            console.assert(mergeSort(a1, a2) == [1, 2, 2, 2, 3, 4, 4, 8, 9], "Test 1 failed");
+            console.assert(mergeSort(1, 1) == [1, 1], "Test 2 failed");
+            console.assert(mergeSort(1325) == [1, 2, 3, 5], "Test 3 failed");
+            console.assert(mergeSort(1234, 2428967) == [1, 2, 2, 2, 3, 4, 4, 6, 7, 8, 9], "Test 4 failed");
+        }
+        function mergeSort(array1, array2) {
+            let combinedArray = [];
+            let sortedArray = [];
+            if (array1 != undefined) {
+                for (let ma1 = 0; ma1 < array1.length; ma1++) {
+                    combinedArray.push(array1[ma1]);
+                }
+            }
+            if (array2 != undefined) {
+                for (let ma2 = 0; ma2 < array2.length; ma2++) {
+                    combinedArray.push(array2[ma2]);
+                }
+            }
+            sortedArray = bubbleSort(combinedArray);
+            return sortedArray;
+        }
+        function bubbleSort(input) {
+            let swapped = false;
+            for (let a = 0; a < input.length; a++) {
+                swapped = false;
+                for (let b = 0; b < input.length - a - 1; b++) {
+                    if (input[b] > input[b + 1]) {
+                        [input[b], input[b + 1]] = [input[b + 1], input[b]];
+                        swapped = true;
+                    }
+                }
+                if (swapped === false) break;
+            }
+            return input;
+        }
+    </script>
+</body>
+
+</html>
