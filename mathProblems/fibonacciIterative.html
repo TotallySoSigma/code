@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Iteration</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Input">
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.time("Execution Time");
+            console.log(fibonacci(input));
+            console.timeEnd("Execution Time");
+        }
+        function fibonacci(n) {
+            let x = 0;
+            let minusOne = 1;
+            let minusTwo = 0;
+            if (n == 1) {
+                return 0;
+            }
+            if (n == 2) {
+                return 1;
+            }
+            for (i = 0; i < n; i++) {
+                x = minusOne + minusTwo;
+                minusTwo = minusOne;
+                minusOne = x;
+            }
+            return minusTwo;
+        }
+    </script>
+</body>
+
+</html>
