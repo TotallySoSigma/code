@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greatest Common Denominator</title>
+</head>
+
+<body>
+    <textarea id="textarea1" placeholder="Insert stuff here #1"></textarea>
+    <textarea id="textarea2" placeholder="Insert stuff here #2"></textarea>
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let textarea1 = document.getElementById("textarea1").value;
+            let textarea2 = document.getElementById("textarea2").value;
+            console.log(getGcd(textarea1, textarea2));
+        }
+        function getGcd(input1, input2) {
+            let smallerNumber;
+            if (input1.length < input2.length) {
+                smallerNumber = input1;
+            } else {
+                smallerNumber = input2;
+            }
+            for (let i = smallerNumber; i > 0; i--) {
+                if ((input1 % i == 0) && (input2 % i == 0)) {
+                    return i;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

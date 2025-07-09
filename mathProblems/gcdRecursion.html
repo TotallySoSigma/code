@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greatest Common Denominator</title>
+</head>
+
+<body>
+    <textarea id="textarea1" placeholder="Insert stuff here #1"></textarea>
+    <textarea id="textarea2" placeholder="Insert stuff here #2"></textarea>
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let textarea1 = document.getElementById("textarea1").value;
+            let textarea2 = document.getElementById("textarea2").value;
+            console.log(callGetGcd(textarea1, textarea2));
+            console.assert(callGetGcd(21, 14) == 7, "Test 1 failed");
+            console.assert(callGetGcd(60, 12) == 12, "Test 2 failed");
+            console.assert(callGetGcd(21, 21) == 21, "Test 3 failed");
+            console.assert(callGetGcd(1, 2) == 1, "Test 4 failed");
+            console.assert(callGetGcd(2, 4) == 2, "Test 5 failed");
+            console.assert(callGetGcd(2, 1) == 1, "Test 6 failed");
+            console.assert(callGetGcd(1, 1) == 1, "Test 7 failed");
+            console.log(callGetGcd(2, 1));
+        }
+        function callGetGcd(textarea1, textarea2){
+            return getGcd(textarea1, textarea2, (textarea1 + textarea2));
+        }
+        function getGcd(input1, input2, x) {
+            if (input1 % x == 0 && input2 % x == 0) {
+                return x;
+            } else {
+                return getGcd(input1, input2, x - 1);
+            }
+        }
+    </script>
+</body>
+
+</html>
