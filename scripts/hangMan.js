@@ -30,7 +30,7 @@ function handleKeyDown(event) {
             document.getElementById("hangman").src = `images/Hangman/${incorrectAttempts}.png`;
         }
     }
-}
+} 
 document.addEventListener('keydown', handleKeyDown);
 //////////////////////////////////////////////////////////////
 function replaceDashes(char) {

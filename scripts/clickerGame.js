@@ -4,3 +4,4 @@ function changeScore() {
     score=score+1
     document.getElementById('scoreVar').innerHTML=score
 }
+ 

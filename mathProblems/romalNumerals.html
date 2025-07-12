@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Numeral Converter</title>
+</head>
+
+<body>
+    <textarea id="text" placeholder="Insert text here"></textarea>
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let textarea = document.getElementById("text").value;
+            console.log(romanNumerals(textarea));
+        }
+        function romanNumerals(input) {
+            const one = "I";
+            const five = "V";
+            const ten = "X";
+            const fifty = "L";
+            const hundred = "C";
+            const fivehundred = "D";
+            const thousand = "M";
+            let answer = [];
+            for (let i = 0; i < input.length; i++) {//converting into numbers
+                if (input[i] == one) {
+                    answer.push(1);
+                }
+                if (input[i] == five) {
+                    answer.push(5);
+                }
+                if (input[i] == ten) {
+                    answer.push(10);
+                }
+                if (input[i] == fifty) {
+                    answer.push(50);
+                }
+                if (input[i] == hundred) {
+                    answer.push(100);
+                }
+                if (input[i] == fivehundred) {
+                    answer.push(500);
+                }
+                if (input[i] == thousand) {
+                    answer.push(1000);
+                }
+            }/////////////////////////////////////////converting into numbers
+            for (let j = 0; j < answer.length; j++) {//checking if i need to convert two numbers into one
+                if (answer[j + 1] - answer[j] == 1) {//checking if i need to convert two numbers into one
+                    answer.splice(j, 2, answer[j + 1] - answer[j]);//CONVERTING
+                }
+            }
+            return answer;//returning
+        }
+    </script>
+</body>
+
+</html>

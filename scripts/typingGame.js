@@ -20,7 +20,7 @@ function countdown() {
             document.getElementById('timer').innerHTML = "Time's up!";
         }
     }, 1000);
-}
+} 
 
 
 //Event listener for key presses;

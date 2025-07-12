@@ -20,5 +20,5 @@ window.addEventListener('keydown', function(event){
     }
     image.style.top = `${topP}px`;
     image.style.left = `${leftP}px`;
-});
+}); 
 

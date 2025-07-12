@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Palindrome Checker</title>
+</head>
+
+<body>
+    <input type="text" id="text" placeholder="Insert Palindrome here">
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let text = document.getElementById("text").value;
+            console.log(palindromeCheck(text));
+            console.assert(palindromeCheck("mom") == true, "Test 1 failed");
+            console.assert(palindromeCheck("hello") == false, "Test 2 failed");
+            console.assert(palindromeCheck("moon") == false, "Test 3 failed");
+            console.assert(palindromeCheck("676") == true, "Test 4 failed");
+        }
+        function palindromeCheck(input) {
+            if (input[0] != input[input.length - 1]) {//base condition
+                return false;
+            } else if (input.length == 0 || input.length == 1) {
+                return true;
+            } else {
+                input = input.substring(1, input.length - 1);
+                return palindromeCheck(input);
+            }
+        }
+    </script>
+</body>
+
+</html>

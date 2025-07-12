@@ -18,7 +18,7 @@ function calculate() {
 
 
 
-let numbers = [];
+let numbers = []; 
 let operator;
 let currentNumber = 0;
 function reset() {
