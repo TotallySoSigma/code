@@ -6,7 +6,7 @@ window.addEventListener('keydown', function(event){
     const step = 100;
     switch(event.key) {
         case 'ArrowUp':
-            topP = topP - step;
+            topP = topP - step; 
             break;
         case 'ArrowDown':
             topP = topP + step;

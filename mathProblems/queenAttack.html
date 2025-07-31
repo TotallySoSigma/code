@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../scripts/testing.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <Queen>
+            <Attack>
+    </title>
+</head>
+
+<body>
+    <input type="text" id="input1" placeholder="Please input x coordinate">
+    <input type="text" id="input2" placeholder="Please input y coordinate">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input1 = document.getElementById("input1").value;//x
+            let input2 = document.getElementById("input2").value;//y
+            console.log(queenAttack(input1, input2));
+        }
+        function queenAttack(input1, input2) {//input 1 = x, input 2 = y
+            const chessBoard = [/*x == 0*/[1, 2, 3, 4, 5, 6, 7, 8],/*x == 1*/[1, 2, 3, 4, 5, 6, 7, 8]////////////////////////Chessboard
+                ,/*x == 2*/[1, 2, 3, 4, 5, 6, 7, 8],/*x == 3*/[1, 2, 3, 4, 5, 6, 7, 8],/*x == 4*/[1, 2, 3, 4, 5, 6, 7, 8]////Chessboard
+                ,/*x == 5*/[1, 2, 3, 4, 5, 6, 7, 8],/*x == 6*/[1, 2, 3, 4, 5, 6, 7, 8],/*x == 7*/[1, 2, 3, 4, 5, 6, 7, 8]];//Chessboard
+            //for each x, there is y; 0 - 7//////////////////////////////////////////////////////////////////////////////////Chessboard
+            if (lineFinder(input1[0], input1[1], input2[0], input2[1]) == true) {
+                return true;
+            }
+            return false;
+        }
+        function lineFinder(yx, yy, ex, ey) {
+            if (checkEast(yx, ex) == true) {
+                return true;
+            }/*  else if (checkWest(yx, ex) == true) {
+                return true;
+            } else if (checkNorth(yy, ey) == true) {
+                return true;
+            } else if (checkSouth(yy, ey) == true) {
+                return true;
+            } */
+            return false;
+        }
+        function checkEast(input1, input2) {
+            const maxX = 8;
+            for (let i = 0; i < maxX; i++) {
+                for (let j = 0; j < maxX; j++) {
+                    if (input1[i] == input2[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }/* 
+        function checkWest(input1, input2) {
+            for (let i = input1; i >0; i--) {
+                for (let j = input2; j > 0; j--) {
+                    if (input1[i] == input2[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        function checkSouth(input1, input2) {
+            for (let i = input1; i >0; i--) {
+                for (let j = input2; j > 0; j--) {
+                    if (input1[i] == input2[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        function checkNorth(input1, input2) {
+            const maxY = 8;
+            for (let i = 0; i < maxY; i++) {
+                for (let j = 0; j < maxY; j++) {
+                    if (input1[i] == input2[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        } */
+    </script>
+</body>
+
+</html>

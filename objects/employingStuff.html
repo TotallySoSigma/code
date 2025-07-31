@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP SECRET BUISNESS</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let employee1 = new Employee("moo", 67670, 67, 12);
+            let employee2 = new Employee("Quack", 69690, 999999999999, 67);
+            let employee3 = new Employee("Oink", 11340, 0, Infinity);
+            let employee4 = new Employee("Mommy", 1234, 1200, 0);
+            let employee5 = new Employee("Flatulent Pig That touches grass", 70773, 70773, 1134);
+            let salries = [employee1.getTotalSalary, employee2.getTotalSalary]
+            console.log("Sort by salary: " + sortBySalary(salaryData));
+        }
+        function sortBySalary(arrayOfEmployees) {
+            arrayOfEmployees.sort((a, b) => a.arrayOfEmployees - b.arrayOfEmployees);
+            return arrayOfEmployees;
+
+        }
+        function sortByName(arrayOfEmployees) {
+            for (let i = 0; i < array.length; i++) {
+                //do smth here
+
+            }
+        }
+        function sortByID(arrayOfEmployees) {
+            for (let i = 0; i < array.length; i++) {
+                //do smth here
+
+            }
+        }
+        function Employee(name, ID, salary, bonus){
+            this.name = name;
+            this.ID = ID;
+            this.salary = salary;
+            this.bonus = bonus;
+            this.getTotalSalary = function(){
+                return this.salary + this.bonus;
+            };
+            this.getName = function(){
+                return this.name;
+            };
+            this.getID = function(){
+                return this.ID;
+            };
+        }
+    </script>
+</body>
+
+</html>

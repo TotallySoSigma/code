@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nag A ram</title>
+</head>
+
+<body>
+    <input type="text" id="word1" placeholder="Type first word here">
+    <input type="text" id="word2" placeholder="Type second word here">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let firstWord = document.getElementById("word1").value;
+            let secondWord = document.getElementById("word2").value;
+            console.log(anagram(firstWord, secondWord));
+            console.assert(anagram("anagram", "nag a ram") == true, "Test 1 failed");
+            console.assert(anagram("hello", "moo") == false, "Test 2 failed");
+            console.assert(anagram("cat", "tac") == true, "Test 3 failed");
+            console.assert(anagram("hydroxydeoxycorticosterones", "hydroxydesoxycorticosterone") == true, "Test 4 failed");
+        }
+        function anagram(input1, input2) {
+            input1 = input1.split(" ").join("");
+            input2 = input2.split(" ").join("");
+            if(input1.length != input2.length){
+                return false;
+            }
+            for (let i = 0; i < input1.length + 1; i++) {
+                for (let j = 0; j < input2.length + 1; j++) {
+                    if (input1[i] == input2[j] && input1[i] != "" && input2[j] != "") {
+                        i = 0;
+                        j = 0;
+                        input1 = input1.replace(input1[i], "");
+                        input2 = input2.replace(input2[j], "");
+                    }
+                }
+            }
+            if (input1.length == 0 && input2.length == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

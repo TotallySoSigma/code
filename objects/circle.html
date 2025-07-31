@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+</head>
+
+<body>
+    <input type="text" id="input1" placeholder="input radius">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input1").value;
+            let circleCircumference = new Circle(input);
+            console.log("Circle Circumference: " + circleCircumference.getCircumference());
+            let circleArea = new Circle(input);
+            console.log("Circle Area: " + circleArea.getArea());
+            return;
+        }
+        function Circle(radius) {
+            this.radius = radius;
+            this.getCircumference = function () {
+                return (2 * radius) * Math.PI;
+            };
+            this.getArea = function () {
+                return (radius * radius) * Math.PI;
+            };
+        }
+    </script>
+</body>
+
+</html>

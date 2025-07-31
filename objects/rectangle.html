@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Finder</title>
+</head>
+
+<body>
+    <header>Rectangle Finder</header>
+    <input type="text" id="length" placeholder="insert length">
+    <input type="text" id="width" placeholder="insert width">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let length = document.getElementById("length").value;
+            let width = document.getElementById("width").value;
+            let area = new Rectangle(length, width);
+            console.log(area.getArea());
+        }
+        function Rectangle(length, width) {
+            this.length = length;
+            this.width = width;
+            this.getArea = function() {
+                return length * width;
+            };
+        }
+        /*
+            let circleArea = new Circle(input);
+            console.log("Circle Area: " + circleArea.getArea());
+            */
+    </script>
+</body>
+
+</html>

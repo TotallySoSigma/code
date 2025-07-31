@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Symbols</title>
+</head>
+
+<body>
+    <button type="button" onclick="start()">Run</button>
+    <script>
+        function start() {
+            console.assert(findMathSymbols() == "5+5-5-5", "Test 1 failed");
+        }
+        function findMathSymbols() {
+            const operators = ["+", "-", "*", "/"];
+            let answers;
+            //looping through positions
+            for (let i = 0; i < 4; i++) {//position 1
+                for (let j = 0; j < 4; j++) {//position 2
+                    for (let k = 0; k < 4; k++) {//position 3
+                        answers = "5" + operators[i] + "5" + operators[j] + "5" + operators[k] + "5";
+                        if (eval(answers) == 0) {
+                            console.log(answers);
+                            return answers;
+                        }
+                    }
+                }
+            }
+            return answers;
+        }
+
+
+    </script>
+</body>
+
+</html>

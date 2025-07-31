@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Converter</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="input">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run(){
+            let input = document.getElementById("input").value;
+            console.log(convert(input));
+        }
+        function convert(input){
+            let answers = 0;
+            for (let i = input.length + 1; i >= 0; i--){
+                if (input[i] == 1){
+                    answers += (Math.pow(2, input.length - i))/2;
+                }
+            }
+            return answers;
+        }
+    </script>
+</body>
+</html>

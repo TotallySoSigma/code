@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 math boxes</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            //console.log(findMathBoxes());
+            console.log()
+        }
+        function findMathBoxes() {
+            for (let i = 0; i <= 20; i += 0.1) {
+                for (let j = 0; j <= 20; j += 0.1) {
+                    for (let k = 0; k <= 20; k += 0.1) {
+                        for (let l = 0; l <= 20; l += 0.1) {
+                            i = Math.round(i*10) / 10;//2.1
+                            j = Math.round(j*10) / 10;//10
+                            k = Math.round(k*10) / 10;//5.9
+                            l = Math.round(l*10) / 10;//0.9
+                            if (i * j == 21 && i + k == 8 && j * l == 9 && k - l == 5) {
+                                return l;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

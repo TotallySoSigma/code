@@ -1,0 +1,9 @@
+Employee Objects : First name, ID (5 digit #), salary(int), Bonus(int);
+functions: getTotalSalary - salary + Bonus, getID(), getName();
+
+Create 5 Employee Objects in an array;
+
+Create a function
+sortByTotalSalary(arrayOfEmployees) => returns sorted array of Employees by total salary;
+sortByName(arrayOfEmployees) => returns sorted array of Employees by name;
+sortByID(arrayOfEmployees) => returns sorted array of Employees by ID;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../scripts/testing.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fl<a>tten Ne<s>ted <A>rrays</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            const array = [1, [3, 4], 17];
+            console.log(flattenArrays(array));
+            const test1 = [1, 9, [2, 4, "A"], 5, 5, 3];
+            console.log(assertArraysEqual(flattenArrays(test1), [1, 9, 2, 4, "A", 5, 5, 3], "test1"));
+        }
+        function flattenArrays(array) {
+            let newArr = [];
+            let arrSubI;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].length > 1) {
+                    arrSubI = array[i];
+                    for (let j = 0; j < arrSubI.length; j++){
+                        newArr.push(arrSubI[j]);
+                    }
+                } else {
+                    newArr.push(array[i]);
+                }
+            }
+            return newArr;
+        }
+    </script>
+</body>
+
+</html>

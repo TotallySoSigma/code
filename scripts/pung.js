@@ -14,4 +14,4 @@ function beBad(){
     alert('Don\'t say I didn\'t warn you');
     location.href = "https://pee.com";
 }  
- 
+  

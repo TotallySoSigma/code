@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest Product</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let num = 3133062491;
+            console.log(largestProduct(num));
+        }
+        function largestProduct(number) {
+            let answer = "";
+            for (let i = 0; i < number.toString().length - 3; i++) {
+                if ((number.toString()[i] * number.toString()[i + 1] * number.toString()[i + 2]
+                    * number.toString()[i + 3]) > answer) {
+                    answer = number.toString()[i] * number.toString()[i + 1] * number.toString()[i + 2]
+                    * number.toString()[i + 3];
+                }
+            }
+            return answer;
+        }
+    </script>
+</body>
+
+</html>

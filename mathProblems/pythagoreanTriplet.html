@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Pythagorean Triplet</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            const limit = 1000;
+            for (let a = 0; a < limit; a++) {
+                console.log("a: " + a);
+                for (let b = 0; b < limit; b++) {
+                    for (let c = 0; c < limit; c++) {
+                        if (a * a + b * b == c * c && a < b && b < c && a + b + c == 1000) {
+                            console.log(a + " " + b + " " + c);
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

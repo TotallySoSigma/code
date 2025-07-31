@@ -9,7 +9,7 @@ window.addEventListener('keydown', function (event) {
         score++;
     }
 });
-
+ 
 function countdown() {
     let timer = parseInt(document.getElementById('timer').innerHTML);
     const interval = setInterval(() => {

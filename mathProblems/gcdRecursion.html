@@ -23,10 +23,15 @@
             console.assert(callGetGcd(2, 4) == 2, "Test 5 failed");
             console.assert(callGetGcd(2, 1) == 1, "Test 6 failed");
             console.assert(callGetGcd(1, 1) == 1, "Test 7 failed");
-            console.log(callGetGcd(2, 1));
         }
         function callGetGcd(textarea1, textarea2){
-            return getGcd(textarea1, textarea2, (textarea1 + textarea2));
+            let smallerNumber;
+            if (textarea1 > textarea2){
+                smallerNumber = textarea2;
+            } else {
+                smallerNumber = textarea1;
+            }
+            return getGcd(textarea1, textarea2, smallerNumber);
         }
         function getGcd(input1, input2, x) {
             if (input1 % x == 0 && input2 % x == 0) {

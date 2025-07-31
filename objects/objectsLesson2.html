@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Programming Lesson 2</title>
+</head>
+
+<body>
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            //weehee
+            let weeHee = {
+                "name": "Wee Hee",
+                "friends": ["dogs", "food", "Peanut Butter", "worshippers", "food", "Peanut Butter", "meat", "Peanut Butter", "'fascinating phenomena'", "Peanut Butter", "most humans", "Peanut Butter", "food", "reading", "Social visits", "food", "Peanut Butter"],
+                "species": "waterMelone(God type)",
+                "enemies": [67, 21, "9 + 10", "Jelly", "oink", "squirrels", "turd", "turkeys", "Italian Brainrot", "canned beans"],
+                "funniness": Infinity,
+                "coolness": Infinity,
+                "worshippers": "9,239,502,347,869,825,324,869,243,999",
+                "exists": true
+            };
+            //cat
+            let cat = {
+                "name": "^&*$%$^",
+                "heads": "99999999999999999999999999999999999",
+                "legs": -1 / 2,
+                "tails": 21,
+                "enemies": ["Water", "Dogs", "Me"]
+            };
+            //dynamic property changing
+            let legs = cat.legs;
+            //console.log("cat Legs: " + legs);
+            if (cat.tails < 999) {
+                legs += 67.5;
+                cat.tails += 46;
+            }
+            //console.log("cat Legs are now " + legs);
+            //using brackets
+            let bracketLegs = cat[legs];
+            //getting properties using variables
+            let weeHeesName = "name";
+            //console.log("Wee Hee's name: " + weeHeesName);
+            //dynamic property adding
+            let weeHeeSigmaness = Infinity;
+            weeHee.sigmaness = weeHeeSigmaness;
+            //testing to find properties
+            //console.log("is weeHee a wannabe?: " + weeHee.hasOwnProperty("wannabe"));//false
+            //console.log("is weeHee sigma?: " + weeHee.hasOwnProperty("sigmaness"))//true
+            //manipulating complex objects
+            /* let ourMusic = [
+                67,
+                {
+                    "formats": [
+                        "CD"
+                    ]
+                }
+            ];
+            console.log(ourMusic[1].formats[0]); */
+            /////////////////////////////////////////////////accessing nested objects
+            let ourStorage = {
+                "desk": {
+                    "drawer": "stapler"
+                },
+                "cabinet": {
+                    "top drawer": {
+                        "folder1": "a file",
+                        "folder2": "secrets"
+                    },
+                    "middle drawer":
+                        ["popcorn",
+                            "a notebook",
+                            "secrets",
+                        ],
+                    "bottom drawer": "a soda"
+                }
+            };
+            //console.log(ourStorage.cabinet["top drawer"].folder2);
+            //////////////////////////////////////////////////accessing nested arrays
+            let person = {
+                firstName: "Aaron",
+                lastname: "Yip",
+                id: 6767,
+                fullName: function () {
+                    let firstName = "Aiden";
+                    console.log(firstName + " " + this.lastname);
+                    return this.firstName + " " + this.lastname;
+                }
+            };
+            console.log(person.fullName());
+            //constructors
+            function Dog(name, food, birth){
+                this.name = name;
+                this.food = food;
+                this.birth = birth;
+                this.getDogInfo = function(){
+                    return `${this.name} was born ${this.birth}. She likes ${this.food}!`;
+                };
+            }
+            let myDog = new Dog("Aisha", "Meat", 2020);
+            console.log(myDog.getDogInfo());
+        }
+    </script>
+</body>
+
+</html>

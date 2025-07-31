@@ -17,7 +17,7 @@ function calculate() {
 // This is calculator2 code
 
 
-
+ 
 let numbers = []; 
 let operator;
 let currentNumber = 0;
