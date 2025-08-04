@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Division without the symbol</title>
+    <title>Long Division</title>
 </head>
 
 <body>
-    <input type="text" id="dividend" placeholder="dividend">
-    <input type="text" id="divisor" placeholder="divisor">
+    <textarea id="textarea1" placeholder="Dividend">10</textarea>
+    <textarea id="textarea2" placeholder="Divisor">2</textarea>
     <button type="button" onclick="run()">Run</button>
     <script>
         function run() {
-            let dividend = document.getElementById("dividend").value;
-            let divisor = document.getElementById("divisor").value;
-            console.log(divide(dividend, divisor));
-            console.assert(divide(10, 2) == 5, "Test 1 failed");
-            console.assert(divide(89, 7) == "12 r 5", "Test 2 failed");
-            return divide(dividend, divisor);
+            let textarea1 = document.getElementById("textarea1").value;
+            let textarea2 = document.getElementById("textarea2").value;
+            console.log(longDivision(textarea1, textarea2));
+        }
+        function longDivision(dividend, divisor) {
+            dividend = Number(dividend);
+            divisor = Number(divisor);
+            let answer = 0;
+            for (let i = 0; i < dividend; i++) {
+                
+            }
         }
         function divide(dividend, divisor) {
             let iDividend = dividend;
@@ -32,10 +37,6 @@
                 } else if (dividend - divisor == 0) {
                     answer++;
                     break;
-                } else {
-                    answer = String(answer);
-                    answer += ` r ${dividend}`;
-                    return answer;
                 }
             }
             return answer;
