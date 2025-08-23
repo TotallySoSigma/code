@@ -5,9 +5,9 @@ function assertArraysEqual(actual, expected, testName) {
     const areEqualItems = actual.every((item, i) => item === expected[i]);
 
     if (areEqualLength && areEqualItems) {
-        return `Passed: ${testName}`;
+        return `${testName} passed.`;
     } else {
-        console.error(`Failed: ${testName}. Expected ${expected}, but got ${actual}`);
+        console.error(`${testName} failed. Expected ${expected}, but got ${actual}`);
         return;
     }
 }

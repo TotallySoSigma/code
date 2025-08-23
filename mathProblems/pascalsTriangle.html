@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pascal's Triangle</title>
+    <script src="../scripts/testing.js">"do stuff"</script>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Input number of rows">
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.log(createTriangle(input));
+            console.log(assertArraysEqual(createFirstRow(1), [1], "Test 1"));
+            console.log(assertArraysEqual(createFirstRow(3), [0, 0, 1, 0, 0], "Test 2"));
+            console.log(assertArraysEqual(createFirstRow(12), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "Test 3"));
+        }
+        function createTriangle(n) {
+            let pascalsTriangle = [[]];
+            pascalsTriangle[0] = createFirstRow(n);
+            let jMinus1;
+            for (let i = 1; i < n; i++) {
+                pascalsTriangle[i] = [];
+                for (let j = 0; j < n; j++) {
+                    if (j - 1 == -1) {
+                        jMinus1 = 0;
+                    } else {
+                        jMinus1 = i - 1;
+                    }
+                    pascalsTriangle[i][j] = pascalsTriangle[i - 1][jMinus1] + pascalsTriangle[i - 1][j + 1];
+                }
+            }
+            return pascalsTriangle;
+        }
+        function createFirstRow(n) {
+            n = Number(n);
+            let pascalsTriangle = [];
+            for (let i = 0; i < n - 1; i++) {
+                pascalsTriangle[i] = 0;
+            }
+            pascalsTriangle[n - 1] = 1;
+            for (let i = 1; i < n; i++) {
+                pascalsTriangle[i - 1 + n] = 0;
+            }
+            return pascalsTriangle;
+        }
+    </script>
+</body>
+
+</html>
