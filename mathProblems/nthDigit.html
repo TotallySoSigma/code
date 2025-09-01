@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nth Digit</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Number">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.log(nthDigit(input));
+            console.assert(generate(10) == "12345678910", "Test 1 failed");
+            console.assert(generate(20) == "1234567891011121314151617181920", "Test 2 failed");
+        }
+        function generate(input) {
+            let number = "";
+            for (let i = 1; i <= input; i++) {
+                number += i;
+            }
+            return number;
+        }
+        function nthDigit(input) {
+            let number = generate(input);
+            console.log("NUMBER: " + number);
+            for (let i = 0; i < number.length; i++) {
+                console.log("I: "+i);
+                if(i == input){
+                    return Number(number[i]);
+                }
+            }
+            console.error("Error 404: Not Enough Rizz");
+            return "";
+        }
+    </script>
+</body>
+
+</html>
