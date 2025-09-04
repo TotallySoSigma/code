@@ -16,6 +16,13 @@
             console.log(nthDigit(input));
             console.assert(generate(10) == "12345678910", "Test 1 failed");
             console.assert(generate(20) == "1234567891011121314151617181920", "Test 2 failed");
+            console.assert(generate(0) == "", "Test 3 failed");
+            console.assert(generate(1) == "1", "Test 4 failed");
+            console.assert(generate(13) == "12345678910111213", "Test 5 failed");
+            console.assert(nthDigit(5) == 5, "Test 6 failed");
+            console.assert(nthDigit(12) == 1, "Test 7 failed");
+            console.assert(nthDigit(100) == 5, "Test 8 failed");
+            console.assert(nthDigit(17) == 3, "Test 9 failed");
         }
         function generate(input) {
             let number = "";
@@ -25,16 +32,12 @@
             return number;
         }
         function nthDigit(input) {
-            let number = generate(input);
-            console.log("NUMBER: " + number);
-            for (let i = 0; i < number.length; i++) {
-                console.log("I: "+i);
-                if(i == input){
-                    return Number(number[i]);
+            let number = String(generate(input));
+            for (let i = 0; i < number; i++) {
+                if (i >= input) {
+                    return Number(number.charAt(i - 1));
                 }
             }
-            console.error("Error 404: Not Enough Rizz");
-            return "";
         }
     </script>
 </body>
