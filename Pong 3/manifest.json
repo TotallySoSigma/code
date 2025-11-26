@@ -1,5 +1,5 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 2,
     "name": "Pong 3",
     "description": "A simple two-player pong game where you try to hit the moving red goals with a ball",
     "version": "1.0",
