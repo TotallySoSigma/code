@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribbonacci Sequence</title>
+</head>
+0, 0, 1, 1, 2, 4, 7, 13, 24, 44
+
+<body>
+    <h1>Tribbonaci Sequence</h1>
+    <input type="text" id="input" placeholder="Length">
+    <br>
+    <label for="input">Input Length</label>
+    <br>
+    <br>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.log(calculateTribbonacci(input));
+            return;
+        }
+        function calculateTribbonacci(length) {
+            let tribbonacciArray = [0, 0, 1];
+            if (length < 3) {
+                if (length <= 0) {
+                    return [];
+                }
+                if (length == 1) {
+                    return [0];
+                }
+                if (length == 2) {
+                    return [0, 0];
+                }
+                if (length == 3) {
+                    return [0, 0, 1];
+                }
+            } else {
+                let number = 0
+                let minusOne = 1;
+                let minusTwo = 0;
+                let minusThree = 0;
+                length = Number(length);
+                for (let i = 3; i < length; i++) {
+                    number = minusOne + minusThree + minusTwo;
+                    minusThree = minusTwo;
+                    minusTwo = minusOne;
+                    minusOne = number;
+                    tribbonacciArray[i] = number;
+                }
+            }
+            return tribbonacciArray;
+        }
+    </script>
+</body>
+
+</html>

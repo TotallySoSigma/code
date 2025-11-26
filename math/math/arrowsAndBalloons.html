@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow and Balloons</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let array = [];
+            console.log(assertArraysEqual(calculate([]), [], "Test 1"));
+            console.log(assertArraysEqual(calculate([[1, 5], [10, 12], [11, 50], [40, 90]]), [5, 11, 90], "Test 2"));
+            console.log(assertArraysEqual(calculate([[20, 50], [30, 67], [12, 67]]), [30, 67], "Test 3"));
+            console.log(calculate(array));
+            return;
+        }
+        function calculate(array) {
+            let answerPositions = [];
+            for (let i = 0; i < 101; i++) {
+                if (array.length < 1) {
+                    return answerPositions;
+                }
+                if (array.length == 1) {
+                    answerPositions.push(array[0][1]);
+                    return answerPositions;
+                }
+                if (array[0][1] >= array[1][0]) {
+                    answerPositions.push(array[1][0]);
+                    array.splice(0, 2);
+                } else {
+                    answerPositions.push(array[0][1]);
+                    array.splice(0, 1);
+                }
+            }
+        }
+        function assertArraysEqual(actual, expected, testName) {
+            const areEqualLength = actual.length === expected.length;
+            const areEqualItems = actual.every((item, i) => item === expected[i]);
+            if (areEqualLength && areEqualItems) {
+                return `${testName} passed.`;
+            } else {
+                console.error(`${testName} failed. Expected ${expected}, but got ${actual}`);
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>

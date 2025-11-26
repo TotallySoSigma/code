@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Root Finder 2.0</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Insert Square Root Here">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            let x = "";
+            console.log(sqrtFinder(input));
+            console.assert(sqrtFinder(x) == "ERROR", "Test 1 failed");
+            console.assert(sqrtFinder(x) == "ERROR", "Test 2 failed");
+            console.assert(sqrtFinder(x) == "ERROR", "Test 3 failed");
+            console.assert(sqrtFinder(x) == "ERROR", "Test 4 failed");
+            console.assert(sqrtFinder(x) == "ERROR", "Test 5 failed");
+        }
+        function sqrtFinder(input, counter) {
+            if (counter == undefined) {
+                counter = 0;
+            }
+            if (counter == 5) {
+                return String(input);
+            }
+            let isNumber = /^\d+(\.\d+)?$/.test(input);
+            if (isNumber == false) {
+                console.error("Error 67... Not enough rizz");
+                return "ERROR";
+            }
+            let s = input;
+            let a = findClosestSquare(s);
+            let b = s - (a ** 2);
+            return sqrtFinder(a + (b / (2 * a)), counter + 1);
+            //return (a + (b / (2 * a)));
+        }
+        function findClosestSquare(input) {
+            let s = input;
+            let currClosestSquare = 1;
+            for (let a = 1; a < s; a++) {
+                if (Math.abs(s - a ** 2) < Math.abs(s - currClosestSquare)) {
+                    currClosestSquare = a;//requires squaring to get value closer to "s"
+                }
+            }
+            return currClosestSquare;
+        }
+    </script>
+</body>
+
+</html>

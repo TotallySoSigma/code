@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look and Say Sequence</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Input">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.assert(generateNext("1") == "11", "Test 1 failed");
+            console.assert(generateNext("11") == "21", "Test 2 failed");
+            console.assert(generateNext("21") == "1211", "Test 3 failed");
+            console.assert(generateNext("1211") == "111221", "Test 4 failed");
+            console.assert(generateNext("111221") == "312211", "Test 5 failed");
+            console.assert(generateNext("65") == "1615", "Test 6 failed");
+            console.assert(generateNext("1234633335582245") == "1112131416432518221415", "Test 7 failed");
+        }
+        function generateNext(currLine) {
+            let counter = 1;
+            let nextLine = "";
+            for (let i = 0; i < currLine.length; i++) {
+                if (currLine[i] == currLine[i + 1]) {
+                    counter++;
+                } else {
+                    nextLine += String(counter);
+                    nextLine += currLine[i];
+                    counter = 1;
+                }
+            }
+            return String(nextLine);
+        }
+    </script>
+</body>
+
+</html>

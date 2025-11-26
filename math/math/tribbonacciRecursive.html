@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribbonacci Recursion</title>
+</head>
+
+<body>
+    0, 0, 1, 1, 2, 4, 7, 13, 24, 44
+    <input type="text" id="input" placeholder="Write number here">
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.log(tribbonacci(input));
+        }
+        function tribbonacci(n) {
+            if (n == 1) {
+                return 0;
+            } else if (n == 2) {
+                return 0;
+            } else if (n == 3) {
+                return 1;
+            } else {
+                return tribbonacci(n - 1) + tribbonacci(n - 2) + tribbonacci(n - 3);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove HTML tags</title>
+</head>
+
+<body>
+    <h1>Remove HTML tags</h1>
+    <input type="text" id="input" placeholder="Insert Input">
+    <button type="button" onclick="run()">Run</button>
+    <p id="p">Your result will appear here</p>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.log(removeTags(input));
+        }
+        function removeTags(input) {
+            input = String(input);
+            let output = "";
+            let appendYN = true;
+            for (let i = 0; i < input.length; i++) {
+                if (input[i] == "<" && appendYN == true) {
+                    appendYN = false;
+                }
+                if (input[i - 1] == ">" && appendYN == false && (input[i] != ">" && input[i] != "<")) {
+                    appendYN = true;
+                }
+                if (appendYN == true) {
+                    output = output + input[i];
+                }
+            }
+            document.getElementById("p").innerHTML = output;
+            return output;
+        }
+    </script>
+</body>
+
+</html>

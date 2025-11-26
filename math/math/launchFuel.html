@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Fuel</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Input payload weight">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let weight = document.getElementById("input").value;
+            console.log(launchFuel(weight));
+        }
+        function launchFuel(payload) {
+            let fuelWeight = 0;
+            let prevMass = Number(payload);
+            let currMass = Number(payload);
+            while (currMass - prevMass + 2 > 1) {
+                fuelWeight += currMass/5 - fuelWeight;
+                currMass += currMass / 5;
+            }
+            return currMass;
+        }
+    </script>
+</body>
+
+
+</html>

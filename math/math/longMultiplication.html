@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Multiplication</title>
+</head>
+
+<body>
+    <input type="text" id="input1" placeholder="Insert First Number Here">
+    <input type="text" id="input2" placeholder="Insert Second Number Here">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input1 = document.getElementById("input1").value;
+            let input2 = document.getElementById("input2").value;
+            console.log(calculate(input1, input2));
+        }
+        function calculate(number1, number2) {
+            let carryOver = 0;
+            let currNum = "";//current number that is changed
+            let toAdd = [];// add after all multiplication
+            toAdd.length = number2.length;
+            let currMultiplication = String(number2)[String(number2.length - 1)];//not zero-based
+            for (let i = number2.length; i > 0; i--) {//looping thru the chars of num2
+                for (let j = number2.length; j > 0; j--) {
+                    (toAdd[number2.length - j]).length = 
+                }
+            }
+        }
+        /hai lefjres rsei oai dicchu wasegawnea/;
+    </script>
+
+</body>
+
+</html>

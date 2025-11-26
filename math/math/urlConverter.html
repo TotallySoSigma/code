@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL-friendly converter</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="input">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        /*still need:
+
+        multiple spaces converted to one
+        write test cases
+        call convert function
+        write determine if letter function and implement it
+        test code
+        */
+        function run() {
+            let input = document.getElementById("input").value;
+        }
+        function convertToURL(input) {
+            //converts a given string to a URL friendlier version
+            input = String(input.trim());//trimming and making sure its a string
+            input = input.toLowerCase();//satisfying first criteria
+            let convertedString = "";//declaring new str
+            for (let i = 0; i < input.length; i++) {//looping thru str
+                if (input[i] == " ") {//checking for spaces
+                    convertedString[i] = "%20";//replacing spaces
+                } else {
+                    convertedString[i] = input[i];//otherwise just add str to convertedStr
+                }
+            }
+        }
+        function determineIfLetter(input) {
+            //inputs one letter and returns if the input is a num or letter
+        }
+    </script>
+</body>
+
+</html>

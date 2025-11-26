@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tests</title>
 </head>
+
 <body>
     <button type="button" onclick="run()">Run</button>
     <script>
-        function run(){
-            console.log(factorial(4));
+        function run() {
+            console.log(test("af4"));
         }
-        function factorial(n){
-            if (n == 1){
-                return n;
-            } else {
-                return factorial(n-1)*n;
-            }
+        function test(n) {
+            let isnumber = /^\d+$/.test(n);
+            return isnumber;
         }
-    </script>  
+    </script>
 </body>
+
 </html>

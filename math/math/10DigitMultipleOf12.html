@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest 10-Digit Multiple of 12</title>
+</head>
+9876543120
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            for (let i = 9876543210; i > 1000000000; i--) {
+                if ((i % 12 == 0) && compareNumber(i)) {
+                    console.log(i);
+                    return;
+                }
+            }
+            return;
+        }
+        function compareNumber(input) {
+            input = String(input);
+            for (let i = 0; i < input.length; i++) {
+                for (let j = 0; j < input.length; j++) {
+                    if ((input[i] == input[j]) && (i != j)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

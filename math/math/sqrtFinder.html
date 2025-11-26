@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Root Finder</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Insert Number Here">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = document.getElementById("input").value;
+            console.time("Calculation time");
+            console.log(calcSqRt(input));
+            console.timeEnd("Calculation time");
+            console.assert((calcSqRt("1600") == "40"), "test case 1 failed");
+            console.assert((calcSqRt("1764") == "42"), "test case 2 failed");
+            console.assert((calcSqRt("2025") == "45"), "test case 3 failed");
+            console.assert((calcSqRt("2102") == "45"), "test case 4 failed");
+            console.assert((calcSqRt("9003") == "94"), "test case 5 failed");
+            console.assert(calcSqRt(2048) == "45", "Test 6 failed");
+            console.assert(calcSqRt(8317) == "91", "Test 7 failed");
+            console.assert(calcSqRt(1024) == "32", "Test 8 failed");
+            console.assert(calcSqRt(4635) == "68", "Test 9 failed");
+            console.assert(calcSqRt("8667") == "93", "test case 10 failed");
+            console.assert(calcSqRt("5623") == "74", "test case 11 failed");
+            console.assert(calcSqRt("2oo2.82") == "ERROR", "test case 12 failed");
+            console.assert(calcSqRt("532.23") == "23.0", "test case 13 failed");
+        }
+        function calcSqRt(input) {
+            let isnumber = /^\d+(\.\d+)?$/.test(input);
+            if (isnumber == false) {
+                return "ERROR";
+            }
+            let answer = "";
+            let splittedArray = splitToArray(input);//splitting into pairs
+            let closestSquare = findClosestSquare(Number(splittedArray[0]));//finding first square
+            answer += String(closestSquare);
+            let firstSubtraction = Number(splittedArray[0]) - (closestSquare * closestSquare);//83-81
+            let nextNumber = Number(String(firstSubtraction) + String(splittedArray[1]));//217
+            let b = findB(Number(answer) * 2, nextNumber);
+            answer += b;
+            return String(answer);
+        }
+        function splitToArray(input) {
+            let splittedArrayPart1;
+            input = String(input);
+            let length = input.length;
+            let hasDecimal = input.includes(".");
+            if (hasDecimal) {
+                splittedArrayPart1 = input.split(".");
+            }
+            let returnArr = [String(input)[0] + String(input)[1], String(input)[2] + String(input)[3]];
+            return returnArr;
+        }
+        function findClosestSquare(input) {
+            for (let i = 0; i < input; i++) {
+                if (i * i > input && i - 1 > 0) {
+                    return i - 1;
+                }
+            }
+        }
+        function findB(firstDigits, limit) {//firstDigits = number, limit = number
+            for (let b = 0; b < 11; b++) {
+                if (((firstDigits * 10) + b)/*number to be checked*/ * b > limit) {
+                    return b - 1;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

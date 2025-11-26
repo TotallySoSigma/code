@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "Pong 3",
+    "description": "A simple two-player pong game where you try to hit the moving red goals with a ball",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "troll.png",
+        "default_popup": "pong3.html"
+    },
+    "permissions": []
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Military to standard Time converter</title>
+</head>
+
+<body>
+    <input type="text" id="input" placeholder="Please enter a Military time">
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let time = document.getElementById("input").value;
+            console.log(to12(time));
+            return "";
+        }
+        function to12(input) {
+            if (Number(input) > 2359) {
+                console.error("Error 67. Please enter a valid input or else you are not sigma");
+                return "00:00";
+            }
+            if (Number(input) > 1200) {
+                input = String(Number(input) - 1200);
+                input = input[0] + input[1] + ":" + input[2] + input[3] + " PM";
+            } else if (input[1] == "0") {
+                input = "12:" + input[2] + input[3] + " AM"
+            } else if (input == "1200") {
+                input = "12:00 PM"
+            } else {
+                input = input[0] + input[1] + ":" + input[2] + input[3] + " AM"
+            }
+            return input;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+SQRT finder test cases
+
+Account for zeroes @ front & back
+Decimals
+Different length

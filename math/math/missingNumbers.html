@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Numbers</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            let input = [8, 5, 9, 4];
+            console.log(missingNumbers(input));
+            console.log(assertArraysEqual(missingNumbers([8, 5]), [6, 7], "Test 1"));
+            console.log(assertArraysEqual(missingNumbers([1, 10]), [2, 3, 4, 5, 6, 7, 8, 9], "Test 2"));
+            console.log(assertArraysEqual(missingNumbers([1, 10, 11, 15, 13, 14]), [2, 3, 4, 5, 6, 7, 8, 9], "Test 3"));
+        }
+        function missingNumbers(input) {////////////////////////main function
+            let arrayToReturn = [];
+            input = bubbleSort(input);
+            let smallestNumber = input[0];
+            let largestNumber = input[input.length - 1];
+            console.log(smallestNumber, largestNumber);
+            for (let i = smallestNumber; i < input.length + smallestNumber; i++) {
+                //do something here
+            }
+            return arrayToReturn;
+        }
+        function bubbleSort(input) {//sort array
+            let swapped = false;
+            for (let a = 0; a < input.length; a++) {
+                swapped = false;
+                for (let b = 0; b < input.length - a - 1; b++) {
+                    if (input[b] > input[b + 1]) {
+                        [input[b], input[b + 1]] = [input[b + 1], input[b]];
+                        swapped = true;
+                    }
+                }
+                if (swapped === false) break;
+            }
+            console.log(input);
+            return input;
+        }
+        function assertArraysEqual(actual, expected, testName) {//test arrays input
+            const areEqualLength = actual.length === expected.length;
+            const areEqualItems = actual.every((item, i) => item === expected[i]);
+            if (areEqualLength && areEqualItems) {
+                return `${testName} passed.`;
+            } else {
+                console.error(`${testName} failed. Expected ${expected}, but got ${actual}`);
+                console.error(`That means Aiden really is nubbish after all.`);
+                return;
+            }
+        }
+        function removeDuplicates(input) {
+            for (let i = 0; i < input.length; i++) {
+                for (let j = 0; j < input.length; j++) {
+                    if (input[j] == input[i]) {
+                        input.splice(input[i], 1)
+                    }
+                }
+            }
+            console.log(input);
+            return input;
+        }
+    </script>
+</body>
+
+</html>
