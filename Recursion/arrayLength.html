@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array length</title>
+</head>
+
+<body>
+    <script>
+        function findLength(array, count) {
+            if (count === undefined) {
+                count = 0;
+            }
+            if (array[count] === undefined) {
+                return count;
+            } else {
+                return findLength(array, count + 1);
+            }
+        }
+        function count(arr) {
+            if (arr.length === 0) {
+                return 0;
+            } else {
+                return 1 + count(arr.slice(1));
+            }
+        }
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        console.time("1");
+        console.log(findLength(arr));
+        console.timeEnd("1");
+        console.time("2");
+        console.log(arr.length);
+        console.timeEnd("2");
+        console.time("3");
+        console.log(count(arr));
+        console.timeEnd("3");
+    </script>
+</body>
+
+</html>

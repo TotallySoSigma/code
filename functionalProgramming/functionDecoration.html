@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Decoration</title>
+</head>
+
+<body>
+    <script>
+        const runOnce = (convertMe) => {
+            let counter = 0;
+            const inner = input => {
+                if (counter == 0) {
+                    const output = convertMe(input);
+                    counter++;
+                    return output;
+                }
+                return "Sorry, This function was already called";
+            }
+            return inner;
+        }
+        const modify = num => num + 2;
+        const runOnceModify = runOnce(modify);
+        console.log(runOnceModify(6));//8
+        console.log(runOnceModify(7));//Sorry
+    </script>
+</body>
+
+</html>

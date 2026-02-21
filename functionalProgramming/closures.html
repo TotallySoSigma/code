@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Closures
+        //function that returns other function
+        //returned function saves state of all variables in both
+        //only returned function can access saved variables; protects from outside tampering
+        //ex:
+        /*     let count = 5;
+            const outer = () => {
+                let count = 0;
+                const addNumberToCount = (number) => {
+                    count += number;
+                    console.log("Count: " + count);
+                };
+                return addNumberToCount;
+            };
+            const closure = outer();
+            const closure2 = outer();
+            closure(2);//2
+            closure(2);//4
+            closure(2);//6
+            closure2(2);//2
+            closure2(2);//4
+    
+    
+    
+            //hide secret using closures
+            function createSecret(secret) {
+                return {
+                    getSecret() {
+                        return secret;
+                    }
+                }
+            }
+            const s = createSecret("HAHA there was no secret");
+            console.log("s.getSecret(): " + s.getSecret());//"HAHA there was no secret"
+            console.log("s.secret: " + s.secret);//undefined
+    
+    
+    
+            //multiplication closures exercise
+            function multiplyBy(n) {
+                function multiply(x) {
+                    return n * x;
+                }
+                return multiply;
+            }
+            const double = multiplyBy(2);
+            const triple = multiplyBy(3);
+            console.log(double(5));
+            console.log(triple(5));
+    
+    
+    
+            //create logger using closures
+            function createLogger(input1) {
+                return input2 => console.log(`[${input1}]: ${input2}`);
+            }
+            const errorLog = createLogger("ERROR");
+            const infoLog = createLogger("INFO");
+            errorLog("Something Broke");//[ERROR]: Something Broke
+            infoLog("Aiden is acting sus");//[INFO]: Aiden is acting sus
+    
+    
+    
+            //fix using closures
+            //don't use "let"
+            for (var i = 1; i <= 3; i++) {
+                setTimeout(() => {
+                    console.log(i);
+                }, 1000);
+            } 
+            function logLater(value) {
+                setTimeout(() => {
+                    console.log(value);
+                }, 1000)
+            }
+            for (var i = 1; i <= 3; i++) {
+                logLater(i);
+            }
+    
+    
+    
+    
+            //bank account
+            function createAccount(initialDeposit) {
+                let amount = initialDeposit;
+                class Account {
+                    deposit(depositAmount) {
+                        amount += depositAmount;
+                    }
+                    withdraw(withdrawalAmount) {
+                        amount -= withdrawalAmount;
+                    }
+                    getBalance() {
+                        console.log(amount);
+                        return amount;
+                    }
+                }
+                return new Account();
+            }
+            const account = createAccount(100);
+            account.deposit(50);
+            account.withdraw(30);
+            account.getBalance();//120
+            account.amount -= 100;
+            account.getBalance();//should still be 120
+    
+    
+    
+    
+            //fn that can only be run once
+            function once(fn) {
+                let ran = false;
+                return () => {
+                    if (!ran) {
+                        ran = true;
+                        return fn();
+                    }
+                    console.log("Warning! Obesity detected");
+                };
+            }
+            function eat() {
+                console.log("Eating for the first time.");
+            }
+            const runOnce = once(eat);
+            runOnce();
+            runOnce();
+    
+    
+    
+    
+            class Once {
+                constructor() {
+                    this.ran = false;
+                }
+                runOnce() {
+                    if (!this.ran) {
+                        console.log("INITIALIZED");
+                    } else {
+                        console.log("ALREADY INITIALIZED");
+                    }
+                    this.ran = true;
+                }
+            }
+            let thingy = new Once();
+            console.log(thingy.runOnce());
+            thingy.ran = false;
+            console.log(thingy.runOnce());
+    
+    
+    
+    
+            function memoize(fn) {
+                const map = new Map();
+                return (n) => {
+                    if (map.get(n) != undefined) {
+                        return map.get(n);
+                    } else {
+                        let x = fn(n);
+                        map.set(n, x);
+                        return x;
+                    }
+                }
+            }
+            const slowSquare = n => {
+                console.log("Computing...");
+                return n * n;
+            }
+            const fastSquare = memoize(slowSquare);
+            console.log("1: " + fastSquare(10));
+            console.log("2: " + fastSquare(10));
+    
+    
+    
+    
+            //counter w/ reset
+            function makeCounter() {
+                let count = 0;
+                class Counter {
+                    inc() {
+                        count++;
+                        return count;
+                    }
+                    reset() {
+                        count = 0;
+                        return count;
+                    }
+                }
+                return new Counter();
+            }
+            const c = makeCounter();
+            console.log(c.inc());//1
+            console.log(c.inc());//2
+            console.log(c.reset());//0
+            console.log(c.inc());//1
+    
+    
+    
+     */
+
+        function trackCalls(fn) {
+            let count = 0;
+            function wrapped(...args) {
+                count++;
+                return fn(...args);
+            }
+            wrapped.getCount = function () {
+                return count;
+            };
+            return wrapped;
+        }
+        const tracked = trackCalls(Math.max);
+        console.warn("run 1: " + tracked(1, 2));
+        console.warn("run 2: " + tracked(3, 4));
+        console.warn("getCount: " + tracked.getCount());
+        //*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP classes</title>
+</head>
+
+<body>
+    <script>
+        class Employee {
+            constructor(salary, id) {
+                this.salary = salary;
+                this.id = id;
+            }
+            getSalary() {
+                return salary;
+            }
+            slackOff() {
+                return "The employee is currently slacking off by gaming on an upside down TV in Ohio";
+            }
+        }
+        class CEO extends Employee {
+            constructor(stockOptions, salary, id) {
+                super(salary, id);
+                this.stockOptions = stockOptions;
+            }
+            slackOff() {
+                return "The CEO is slacking off by going on a cruise when there is an assignment due tomorrow";
+            }
+            manage() {
+                return "The CEO is now managing the department which is intending to capture the monkeys that escaped while he was on a cruise";
+            }
+        }
+        class CodeMonkey extends Employee {
+            constructor(gamingLaptops, salary, id) {
+                super(salary, id);
+                this.gamingLaptops = gamingLaptops;
+            }
+            code() {
+                return "The codemonkey is coding a virus to infect Aiden's PC";
+            }
+            slackOff() {
+                return "The codemonkey is busy coating the ice cream in detergent";
+            }
+        }
+        let employee1 = new Employee();
+        let employee2 = new CodeMonkey();
+        let employee3 = new CEO();
+        console.log(employee1.slackOff());
+        console.log(employee2.slackOff());
+        console.log(employee3.slackOff());
+    </script>
+</body>
+
+</html>

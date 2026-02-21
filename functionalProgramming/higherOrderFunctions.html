@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Programming</title>
+</head>
+
+<body>
+    <script>
+        const array = [6, 7, 4, 1];
+        const copyArrayAndDouble = (array) => {
+            const newArray = [];
+            for (let i = 0; i < array.length; i++) {
+                newArray.push(array[i] * 2);
+            }
+            return newArray;
+        };
+        console.log(copyArrayAndDouble(array));
+        const manipulateNumber = (number) => {
+            return number ** 2;
+        };
+        const copyArrayAndManipulate = (array, manipulation) => {
+            const newArray = [];
+            for (let i = 0; i < array.length; i++) {
+                newArray.push(manipulation(array[i]));
+            }
+            return newArray;
+        };
+        const copyArrayAndManipulateResult = copyArrayAndManipulate(array, manipulateNumber);
+        console.log("Manipulation results: " + copyArrayAndManipulateResult);
+    </script>
+</body>
+
+</html>

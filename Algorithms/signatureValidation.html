@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Validation</title>
+</head>
+
+<body>
+    <button type="button" onclick="validate()">Run</button>
+    <script>
+        let validate = function () {
+            class SignatureValidation {
+                constructor(message, key, signature) {
+                    this.message = message;
+                    this.key = key;
+                    this.signature = signature;
+                }
+                validateSignature() {
+                    let sum = 0;
+                    for (let i = 0; i < this.message.length; i++) {
+                        if (this.message[i] == this.message[i].toUpperCase()) {
+                            sum += this.message[i].charCodeAt(0) - 64;
+                        } else if (this.message[i] == this.message[i].toLowerCase()) {
+                            sum += this.message[i].charCodeAt(0) - 96;
+                        }
+                    }
+                    for (let j = 0; j < this.key.length; j++) {
+                        if (this.key[j] == this.key[j].toUpperCase()) {
+                            sum += this.key[j].charCodeAt(0) - 64;
+                        } else if (this.key[j] == this.key[j].toLowerCase()) {
+                            sum += this.key[j].charCodeAt(0) - 96;
+                        }
+                    }
+                    if (sum == this.signature) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+            let test1 = new SignatureValidation("a", "e", 6);
+            console.assert(test1.validateSignature() == true, "Test 1 failed");
+            let test2 = new SignatureValidation("foo", "bar", 57);
+            console.assert(test2.validateSignature() == true, "Test 2 failed");
+            let test3 = new SignatureValidation(" ", "e", 7);
+            console.assert(test3.validateSignature() == false, "Test 3 failed");
+            let test4 = new SignatureValidation("b", "e", 7);
+            console.assert(test4.validateSignature() == true, "Test 4 failed");
+            let test5 = new SignatureValidation(".", "e", 7);
+            console.assert(test5.validateSignature() == false, "Test 5 failed");
+            let test6 = new SignatureValidation(" ", " ", 0);
+            console.assert(test6.validateSignature() == false, "Test 6 failed");
+        }
+    </script>
+</body>
+
+</html>

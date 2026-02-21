@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods Continued</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <script>
+        function run() {
+            //one();
+            //two();
+            //validate(5);
+            conditionalPipeline(6);
+        }
+        function one() {
+            const people = [
+                { name: "aishapigletsweetnessracoonstarcrunchpigglesworthlessjuniorthesixteenth", age: 5 },
+                { name: "hellotheresirfartsolotfromohio", age: 67 },
+                { name: "wonkypeepee", age: 67 },
+                { name: "quackodoodledoo", age: 41 }
+            ];
+            let object = {};
+            function sortByAge(acc, current) {
+                if (acc[current.age] == undefined) {
+                    acc[current.age] = [];
+                }
+                acc[current.age].push(current.name);
+                return acc;
+            }
+            const sortedByAge = people.reduce(sortByAge, object);
+            console.log(sortedByAge);
+        }
+
+
+
+        //chain str functions
+        function two() {
+            let str = "    I am a cat          ";
+            const fns = [
+                str => str.trim(),
+                str => str.toUpperCase(),
+                str => `${str}!`
+            ];
+            function transform(str, fn) {
+                return fn(str);
+            }
+            const doAll = fns.reduce(transform, str);
+            console.log(doAll);
+        }
+
+
+
+
+
+        //validation
+        function validate(n) {
+            const validators = [
+                n => n > 0,
+                n => n % 2 === 0,
+                n => n < 100
+            ];
+            function validation(value, fn) {
+                return fn(n) && value;
+            }
+            const check = validators.reduce(validation, true);
+            console.log(check);
+            return check;
+        }
+
+
+
+
+        //conditional pipeline
+        function conditionalPipeline(n) {
+            const fns = [
+                x => x + 5,
+                x => x > 10 ? x : null,
+                x => x * 2
+            ];
+            function checkForNull(n, fn) {
+                if (n != null) {
+                    return fn(n);
+                }
+                return null;
+            }
+            const fn = fns.reduce(checkForNull, n);
+            console.log(fn);
+        }
+    </script>
+</body>
+
+</html>

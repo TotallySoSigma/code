@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 to N</title>
+</head>
+
+<body>
+    <script>
+        function doCalculation(n, counter) {
+            if (counter != undefined) {
+                console.log(n - counter);
+            } else {
+                counter = n;
+            } if (counter == 0) {
+                return;
+            } else {
+                return doCalculation(n, counter - 1);
+            }
+        }
+        doCalculation(5);
+        function p(n) {
+            if (n === 0) {
+                return;
+            }
+            p(n - 1);
+            console.log(n);
+        }
+        console.log(p(5));
+    </script>
+</body>
+
+</html>

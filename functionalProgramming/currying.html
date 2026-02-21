@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currying</title>
+</head>
+
+<body>
+    <button type="button" onclick="run()">Run</button>
+    <p id="stuff"></p>
+    <script>
+        function run() {
+            //basicExample("Papaya");
+            //partiallyApplied1(67, 41);
+            //editTxt("monkey😝😝 ");
+            //order(67);
+            //threeNumberMultiplication(6, 7, 41);
+            //greeting("Hope you're having a bad day", "Chimpy", "Monkey");
+            //curriedFunctionsForArrays();
+            //multiNumberSum();
+            hasProperty();
+        }
+        function basicExample(word) {
+            const food = ingredient1 => {
+                return ingredient2 => {
+                    ingredient1 += "s in large amounts";
+                    return ingredient3 => {
+                        ingredient2 += "s in even greater amounts";
+                        return `${ingredient1 + ", followed by "}${ingredient2}, and then ${ingredient3}`;
+                    }
+                }
+            }
+            const myFood = food(`${word}`)(`more ${word}`)(`even more ${word}s!`);
+            console.log("Food: " + myFood);
+        }
+        function partiallyApplied1(input1, input2) {
+            const curriedMultiplication = x => y => x * y;
+            const times = curriedMultiplication(input1);
+            console.log("Multiplication: " + times(input2));
+        }
+        function editTxt(text) {
+            const updateElements = id => content => document.getElementById(id).
+                textContent += content;
+            const updateText = updateElements('stuff');
+            updateText(text);
+        }
+        function order(input) {
+            const addCustomer = fn => (...arguments) => {
+                console.log(`Saving customer info...`);
+                return fn(arguments);
+            }
+            const processOrder = fn => (...arguments) => {
+                console.log(`Processing order #${arguments[0]}`);
+                return fn(...arguments);
+            }
+            let completeOrder = (...arguments) => {
+                console.log(`Order #${[...arguments].toString()} completed`);
+            }
+            completeOrder = (processOrder(completeOrder));
+            completeOrder = addCustomer(completeOrder);
+            completeOrder(input);
+        }
+        function threeNumberMultiplication(a, b, c) {
+            const multiply = a => b => c => a * b * c;
+            const mulitplication = multiply(a)(b);
+            console.log(mulitplication(c));
+        }
+        function greeting(greeting, fName, lName) {
+            const greet = greeting => firstName => lastName => {
+                return `${greeting}, ${firstName} ${lastName}`;
+            }
+            console.log(greet(greeting)(fName)(lName));
+        }
+        function curriedFunctionsForArrays() {
+            let users = [
+                { name: "Alice", age: 25 },
+                { name: "Bob", age: 30 },
+                { name: "Charlie", age: 25 }
+            ];
+            const filterBy = key => value => {
+                return key.filter(user => user.age === value);
+            }
+            const test = filterBy(users)(30);
+            console.log(test);
+        }
+        function multiNumberSum() {
+            const sum = (number) => {
+                let summation = number;
+                const continuation = (next) => {
+                    if (next === undefined) {
+                        return summation;
+                    }
+                    summation += next;
+                    return continuation;
+                }
+                return continuation;
+            }
+            const sumOfNumbers = sum(5)(20)(3)();
+            console.log(sumOfNumbers);
+        }
+        function hasProperty() {
+            const hasProp = property => object => {
+                return object[property] === undefined ? false : true;
+            }
+            const hasName = hasProp("name");
+            console.log(hasName({ name: "aisha" }));//true
+            console.log(hasName({ isDog: true }));//false
+        }
+    </script>
+</body>
+
+</html>

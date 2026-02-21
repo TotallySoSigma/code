@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tests</title>
+    <title>JSON parse</title>
+    <script src="scratchExtension.js"></script>
 </head>
 
 <body>
     <button type="button" onclick="run()">Run</button>
     <script>
         function run() {
-            console.log(test("af4"));
-        }
-        function test(n) {
-            let isnumber = /^\d+$/.test(n);
-            return isnumber;
+            let thing = new ScratchExtension();
+            //console.log(JSON.parse(thing.mythologyURL()));
+            console.log((thing.mythologyURL()));
         }
     </script>
 </body>
 
-</html> 
+</html>

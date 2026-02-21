@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+
+<body>
+    <script>
+        //Map loops thru array and alters items based on input function
+        const modifyValue = x => x / (x - 3 * (x - (37 * x) + 5 * x));
+        let number = [1820];
+        const halfValues = number.map(modifyValue);
+        console.log(halfValues);
+
+
+        //Filter filters thru numbers to find only the ones that meet specific requirements
+        const moreNumber = [10, 67, 2, 24, 78, 94, 99998, 356, 12, 42, 456, 1312, 41, 36, 90];
+        const evenMoreNumber = moreNumber.filter(number => number % 2 == 1);
+        console.log(evenMoreNumber);
+
+
+        //Reduce takes a larger input and simplifies it down 
+        const evenMoreNumbers = [2, 3, 4];
+        const reducedValueOfAllPlus1 = evenMoreNumbers.reduce((sum, value) => sum + value, 1);
+        console.log("reducedValueOfAllPlus1: " + reducedValueOfAllPlus1);
+
+
+        const add1 = num => num + 1;
+        const add2 = num => num + 2;
+        const runFunctionOnInput = (input, fn) => {
+            return fn(input);
+        }
+        const reducedValue = [add1, add2].reduce(runFunctionOnInput, 0);
+        console.log("reducedValue: " + reducedValue);
+
+
+
+        const reducings = [6, 7, 4, 1];
+        const reduce = reducings.reduce((num1, num2) => {
+            return num1 * num2;
+        }, 1);
+        console.log("Reduce: " + reduce);
+
+
+
+        const reducabilililililities = ['quack', 'moo', 'ribbit', 'sumtin\'', 'quackodoodledoo'];
+        const reducing = reducabilililililities.reduce((count) => {
+            return count + 1;
+        }, 0);
+        console.log('Reducing: ' + reducing);
+
+
+
+        const reducibilitys = [
+            { price: 1 },
+            { price: 1 },
+            { price: 1 }
+        ];
+        const reducable = reducibilitys.reduce((count, toAdd) => count += toAdd.price, 0);
+        console.log("Reducable: " + reducable);
+
+
+
+        const reducables = ["a", 'b', "a", "c", 'b', 'a'];//reducables is THE ^&🐵🐵
+        let object = {};
+        function countAppearances(object, letter) {
+            if (object[letter] == undefined) {
+                object[letter] = 0;
+            }
+            object[letter]++;
+            return object;
+        }
+        const reductability = reducables.reduce(countAppearances, object);
+        console.log(reductability);
+
+
+
+        const reductabilities = [[1, 2], [3], [4, 5], [6, 7], 8, 9, 10];
+        // output - [1,2,3,4,5]
+        function flatten(accumArray, current) {
+            console.log(typeof current);
+            if (typeof current == "number") {
+                accumArray.push(current);
+            } else {
+                for (let i = 0; i < current.length; i++) {
+                    accumArray.push(current[i]);
+                }
+            }
+            return accumArray;
+        }
+        const reduces = reductabilities.reduce(flatten, []);
+        console.log(reduces);
+    </script>
+</body>
+
+</html>

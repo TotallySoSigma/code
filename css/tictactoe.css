@@ -1,0 +1,15 @@
+div {
+    background-color: rgb(255, 255, 255);
+    width: 25px;
+    height: 25px;
+    border: 15px solid rgb(0, 0, 0);
+    padding: 50px;
+}
+
+body {
+    color: #676767;
+}
+
+text {
+    color: black;
+}

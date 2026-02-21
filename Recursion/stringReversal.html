@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Reversal</title>
+</head>
+
+<body>
+    <textarea id="input" placeholder="Input">Hello</textarea>
+    <button onclick="run()">Run</button>
+    <script>
+        function stringReversal(str) {
+            if (str.length === 1) {
+                return str[0];
+            } else {
+                return stringReversal(str.slice(1, str.length)) + str[0];
+            }
+        }
+        function run() {
+            const string = document.getElementById("input").value;
+            console.log(stringReversal(string));
+        }
+    </script>
+</body>
+
+</html>

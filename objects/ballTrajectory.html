@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Trajectory</title>
+</head>
+
+<body>
+    <script>
+        function assertArraysEqual(actual, expected, testName) {
+            const areEqualLength = actual.length === expected.length;
+            const areEqualItems = actual.every((item, i) => item === expected[i]);
+
+            if (areEqualLength && areEqualItems) {
+                return `${testName} passed.`;
+            } else {
+                console.error(`${testName} failed. Expected ${expected}, but got ${actual}`);
+                return;
+            }
+        }
+        class Trajectory {
+            constructor(arr) {
+                this.matrix = arr;
+            }
+            getNextLocation() {
+                //
+            }
+        }
+        let thing1 = new Trajectory([[1, 2, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]);
+        console.log(assertArraysEqual(thing1.getNextLocation(), [0, 2], "Test 1"));
+        let thing2 = new Trajectory([[0, 0, 0, 0], [0, 0, 0, 0], [0, 1, 2, 0], [0, 0, 0, 0]]);
+        console.log(assertArraysEqual(thing2.getNextLocation(), [2, 3], "Test 2"));
+        let thing3 = new Trajectory([[0, 0, 0, 0], [0, 0, 1, 0], [0, 2, 0, 0], [0, 0, 0, 0]]);
+        console.log(assertArraysEqual(thing3.getNextLocation(), [3, 0], "Test 3"));
+    </script>
+</body>
+
+</html>qwertyuiopasdfghjklzxcvbnm
