@@ -1,45 +1,5 @@
 
-
-export class Building {//not done
-    constructor(elevators, floors) {
-        this.elevators = elevators;
-        this.floors = floors;
-    }
-    moveElevatorsAndLoad() {
-        //
-    }
-    getNumberOfFloors() {
-        return floors;
-    }
-    getFloor(floorNumber) {
-        //
-    }
-    generatePeople() {
-        new Person();
-    }
-}
-
-
-import { Queue } from './queue.js'
-
-
-
-
-
-
-export class Simulation {//unfinished
-    constructor(elevators, floors, ppl, canvas, timer) {
-        this.elevators = elevators;
-        this.floors = floors;
-        this.peoplePerSecond = ppl;
-        this.canvas = canvas;
-        this.timer = timer;
-    }
-    toggleRun() {
-        //
-    }
-}
-export const building = new Building();
+//export const building = new Building();
 
 //let f = new Floor(0);
 //let p = new Person("a", 0, 1);
