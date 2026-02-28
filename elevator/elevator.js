@@ -254,7 +254,8 @@ class Simulation {//unfinished
         this.pause();
         this.isRunning = !this.isRunning;
     }
-    toggleRun() {        
+    toggleRun() {   
+        // unnecessary comment     
         if (this.isRunning) {
             this.pause();
         } else {
