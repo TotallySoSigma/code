@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="elevator.js"></script>
-    <script src="queue.js"></script>
+    <title>Elevator Simulation</title>
 </head>
 
 <body>
@@ -14,22 +12,31 @@
     <br>
     <br>
     <br>
-    <button id="button" onclick="run()">Start</button>
-    <script type="module">
-        import { Simulaton } from './elevator.js';
-        let sim;
-        let isRunning = false;
+    <script src="elevator.js"></script>
+    <script>
+
+        let sim = new Simulation(2, 3, 1, document.getElementById('canvas'));
         function run() {
             const button = document.getElementById('button');
-            if (!sim) {
-                sim = new Simulaton(2, 3, 1, document.getElementById('canvas'));
-            }
             sim.toggleRun();
-            isRunning = !isRunning;
-            button.textContent = isRunning ? 'Pause' : 'Resume';
+            button.textContent = (sim.isRunning ? 'Pause' : 'Resume');
         }
-        window.run = run;
     </script>
+    <button id="button" onclick="run()">Start</button>
+
+
+
+
+
+
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
+    <!-- Code injected by live-server -->
 </body>
 
 </html>
