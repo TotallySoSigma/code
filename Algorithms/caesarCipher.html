@@ -9,67 +9,56 @@
   
 <body>
     <textarea id="text" placeholder="Insert text here"></textarea>
-    <textarea id="lettersMovedOver" placeholder="Amount of letters moved over">2</textarea>
-    </br>
-    <label for="encodeDecode">Choose to encode or decode:</label>
-    <select id="encodeDecode">
-        <option value="encode">Encode</option>
-        <option value="decode">Decode</option>
-    </select>
-    <button type="button" onclick="run()">Run</button>
+    <div>
+        <label for="lettersMovedOver">Amount of letters moved over:</label>
+        <input id="lettersMovedOver" type="number" value="2" min="0" max="25">
+    </div>
+    <div>
+        <label for="encodeDecode">Choose to encode or decode:</label>
+        <select id="encodeDecode">
+            <option value="encode">Encode</option>
+            <option value="decode">Decode</option>
+        </select>
+        <button type="button" onclick="run()">Run</button>
+        <button type="button" onclick="clearFields()">Clear</button>
+    </div>
+    <textarea id="output" placeholder="Result" readonly></textarea>
     <script>
-        function run() {
-            let textBox = document.getElementById("text").value;//////////////////////////// variable declarations
-            let shiftNumber = parseInt(document.getElementById("lettersMovedOver").value);// variable declarations
-            console.log(encode(textBox, shiftNumber));
-            console.assert(encode("A", 2) == "C", "Test 1 failed");
-            console.assert(encode("Z", 2) == "B", "Test 2 failed");
-            console.assert(encode("hello person", 2) == "jgnnqrgtuqp", "Test 3 failed");
-            console.assert(encode("", 2) == "", "Test 4 failed");
-        }
-        function encode(text, shift) {
-            let updatedNumbers = [];//////////////////////////////////////////////////////// variable declarations
-            let updatedLetters = [];//////////////////////////////////////////////////////// variable declarations
-            let i;////////////////////////////////////////////////////////////////////////// variable declarations
-            let alphabet;
-            let alphabetOfUpdatedNumbers;/////////////////////////////////////////////////// variable declarations
-            let finalAnswer = "";
-            for (i = 0; i < text.length; i++) {///////////////////////////////////////////////////////////////looping
-                if (letterToInt(text[i]) == 54) {/////////////////////////////////////////////////////handling spaces
-                    i++;
-                }
-                if (text === text.toUpperCase()) {
-                    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        function caesar(text, shift) {
+            shift = ((shift % 26) + 26) % 26;
+            let out = '';
+            for (let i = 0; i < text.length; i++) {
+                let ch = text[i];
+                let code = text.charCodeAt(i);
+                if (code >= 65 && code <= 90) { // A-Z
+                    out += String.fromCharCode(((code - 65 + shift) % 26) + 65);
+                } else if (code >= 97 && code <= 122) { // a-z
+                    out += String.fromCharCode(((code - 97 + shift) % 26) + 97);
                 } else {
-                    alphabet = "abcdefghijklmnopqrstuvwxyz "
+                    out += ch;
                 }
-                updatedNumbers.push(letterToInt(text[i]));///////////////////////////////////////////recieving numbers
-                if (updatedNumbers[i] < 0) {
-                    updatedNumbers[i] += 25;
-                } else if (updatedNumbers[i] > 26) {
-                    updatedNumbers[i] = updatedNumbers % 26;
-                }
-                //console.log("UpdatedNumbers: " + updatedNumbers);//////////////////////debug
-                //console.log("alphabet[updatedNumbers]: " + alphabet[updatedNumbers]);//debug
-                alphabetOfUpdatedNumbers = alphabet[updatedNumbers[updatedNumbers.length - 1]];//////////////updating
-                //console.log("alphabetofupdatednumbers: " + alphabetOfUpdatedNumbers);//debug
-                //console.log("letterToInt(text[i]): " + letterToInt(text[i]));//////////debug
-                updatedLetters.push(alphabetOfUpdatedNumbers);///////////////////////////////changing back to letters
-                //console.log("UpdatedLetters: " + updatedLetters);
             }
-            for (let i = 0; i < updatedLetters.length; i++) {
-                finalAnswer += updatedLetters[i];
-            }
-            return finalAnswer;
+            return out;
         }
-        function letterToInt(char) {
-            let shift = parseInt(document.getElementById("lettersMovedOver").value);
-            let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-            for (let x = 0; x < alphabet.length + 1; x++) {
-                if (alphabet[x] == char) {
-                    return x + shift;
-                }
-            }
+
+        function run() {
+            const textBox = document.getElementById('text').value;
+            const shiftNumber = parseInt(document.getElementById('lettersMovedOver').value, 10) || 0;
+            const mode = document.getElementById('encodeDecode').value;
+            const result = mode === 'encode' ? caesar(textBox, shiftNumber) : caesar(textBox, -shiftNumber);
+            document.getElementById('output').value = result;
+
+            // Basic self-tests
+            console.assert(caesar('A', 2) === 'C', 'Test 1 failed');
+            console.assert(caesar('Z', 2) === 'B', 'Test 2 failed');
+            console.assert(caesar('hello person', 2) === 'jgnnq rgtqpu', 'Test 3 expected spacing preserved');
+            console.assert(caesar('', 2) === '', 'Test 4 failed');
+            console.log(result);
+        }
+
+        function clearFields() {
+            document.getElementById('text').value = '';
+            document.getElementById('output').value = '';
         }
     </script>
 </body>

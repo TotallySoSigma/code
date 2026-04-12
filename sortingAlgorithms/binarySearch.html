@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="run()">Run</button>
+    <script>
+        function run() {
+            const array = [1, 3, 4, 7, 9, 9, 13, 35, 44];
+            console.log(search(array, 44));
+        }
+        function search(array, item) {
+            let startIndex = 0;
+            let endIndex = array.length - 1;
+            let middleIndex = 0;
+            while (array[middleIndex] != item) {
+                if (startIndex === endIndex || startIndex > endIndex) {
+                    return -1;
+                }
+                middleIndex = Math.round((startIndex + endIndex) / 2);
+                if (array[middleIndex] === item) {
+                    return middleIndex;
+                } else {
+                    if (array[middleIndex] > item) {
+                        endIndex = middleIndex;
+                    } else {
+                        startIndex = middleIndex;
+                    }
+                }
+            }
+            return middleIndex;
+        }
+    </script>
+</body>
+
+</html>
